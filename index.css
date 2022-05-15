@@ -1,0 +1,233 @@
+.body {
+    margin: 0;
+    padding: 0;
+}
+
+.text-cornflowerblue {
+    color: #7289da;
+}
+
+.bg-cornflowerblue {
+    background-color: #7289da;
+}
+
+.text-whitesmoke {
+    color: #f2f2f2;
+}
+
+.fs-6 {
+    font-size: 20px;
+}
+
+.fs-7 {
+    font-size: 16px;
+}
+
+.fs-8 {
+    font-size: 12px;
+}
+
+.fs-9 {
+    font-size: 8px;
+}
+
+.girisYap {
+    margin-top: 140px;
+}
+
+.girisYap h1 {
+    color: #343a40;
+}
+
+.girisYap form .girisYapbutonu button {
+    background-color: #343a40;
+}
+
+.inf-card {
+    border-radius: 20px;
+}
+
+.table-borderless {
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+}
+
+
+.tab-size {
+    font-size: 12px;
+}
+
+.slideIn {
+    -webkit-animation-name: slideIn;
+    animation-name: slideIn;
+}
+
+.border-top-warning {
+    border-left: 5px solid #0d85fd !important;
+}
+
+.border-top-danger {
+    border-left: 5px solid #cb4335 !important;
+}
+
+.border-top-success {
+    border-left: 5px solid #58d68d !important;
+}
+
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(1rem);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0rem);
+        opacity: 1;
+    }
+
+    0% {
+        transform: translateY(1rem);
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes slideIn {
+    0% {
+        -webkit-transform: transform;
+        -webkit-opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        -webkit-opacity: 1;
+    }
+
+    0% {
+        -webkit-transform: translateY(1rem);
+        -webkit-opacity: 0;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .mt-sm-6 {
+        margin-top: 30px;
+    }
+
+    .mt-sm-7 {
+        margin-top: 45px;
+    }
+
+    .mt-sm-8 {
+        margin-top: 60px;
+    }
+
+    .mt-sm-9 {
+        margin-top: 75px;
+    }
+
+    .mt-sm-10 {
+        margin-top: 90px;
+    }
+
+    .ms-sm-6 {
+        margin-left: 30px;
+    }
+
+    .ms-sm-7 {
+        margin-left: 45px;
+    }
+
+    .ms-sm-8 {
+        margin-left: 60px;
+    }
+
+    .ms-sm-9 {
+        margin-left: 75px;
+    }
+
+    .ms-sm-10 {
+        margin-left: 90px;
+    }
+
+    .ms-sm-11 {
+        margin-left: 105px;
+    }
+
+    .ms-sm-11 {
+        margin-left: 115px;
+    }
+
+    .fs-sm-1 {
+        font-size: 10px;
+    }
+
+    .fs-sm-2 {
+        font-size: 13px;
+    }
+
+    .fs-sm-3 {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .ms-md-6 {
+        margin-left: 30px;
+    }
+
+    .ms-md-7 {
+        margin-left: 45px;
+    }
+
+    .ms-md-8 {
+        margin-left: 60px;
+    }
+
+    .ms-md-9 {
+        margin-left: 75px;
+    }
+
+    .ms-md-10 {
+        margin-left: 90px;
+    }
+
+    .ms-md-11 {
+        margin-left: 105px;
+    }
+
+    .ms-md-11 {
+        margin-left: 115px;
+    }
+
+    #personelBilgileri {
+        margin-top: 12px;
+    }
+
+    #newtask {
+        margin-left: 60px;
+    }
+}
+
+@media only screen and (max-width: 992px) {}
+
+@media only screen and (max-width: 1200px) {}
+
+@media only screen and (min-width:768px) {
+    #newtask {
+        margin-left: 120px;
+    }
+
+    .animate {
+        animation-duration: 0.3s;
+        -webkit-animation-duration: 0.3s;
+        animation-fill-mode: both;
+        -webkit-animation-fill-mode: both;
+    }
+    .footer-margin{
+        margin-left:120px; 
+        margin-right:120px;
+    }
+}
