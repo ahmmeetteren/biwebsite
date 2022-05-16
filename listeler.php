@@ -91,12 +91,13 @@ $gid_sorgu = mysqli_query($baglanti, "SELECT SUM(depGid_ay.gider*12) as gider FR
                         <i class="fas fa-chevron-right"></i> <span class="fs-4 fw-bold">Müşteri Listesi</span>
                     </div>
                     <div class="table-responsive">
-                        <table class="table table-borderless">
-                            <tr>
-                                <th>AD</th>
-                                <th>SOYAD</th>
-                                <th>ATANAN PERSONEL</th>
-                                <th>DEĞERLENDİRME</th>
+                        <table class="table table-borderless fs-sm-2 table-striped" style="text-align:center;">
+                            <tr style="background-color:#6c79e0;">
+                                <th class="text-white">Müşteri Adı</th>
+                                <th class="text-white">Müşteri Soyadı</th>
+                                <th class="text-white">İlgili Personel</th>
+                                <th class="text-white">Değerlendirme Notu</th>
+                                <th></th>
                             </tr>
                             <?php
                             if ($baglanti) {
@@ -113,14 +114,13 @@ $gid_sorgu = mysqli_query($baglanti, "SELECT SUM(depGid_ay.gider*12) as gider FR
                                 $degerlendirme = $sonuc['degerlendirme'];
                             ?>
                                 <tr>
-                                    <td class="mustericol"><?php echo $musteriAd; ?></td>
-                                    <td class="mustericol"><?php echo $musteriSoyad; ?></td>
-                                    <td class="mustericol"><?php echo $atananPersonelAd . " " . $atananPersonelSoyad; ?></td>
-                                    <td class="mustericol"><?php echo $degerlendirme; ?></td>
-
-                                    <td>
-                                        <a class="btn btn-primary me-0 " type="button" href="duzenleMusteri.php?id=<?php echo $musteriID; ?>"><span style="font-size:10px;">Düzenle</span></a>
-                                        <a class="btn btn-danger ms-0" href="control/silMusteri.php?id=<?php echo $musteriID; ?>"><span style="font-size:10px;">Müşteri Sil</span></a>
+                                    <td><?php echo $musteriAd; ?></td>
+                                    <td><?php echo $musteriSoyad; ?></td>
+                                    <td><?php echo $atananPersonelAd . " " . $atananPersonelSoyad; ?></td>
+                                    <td><?php echo $degerlendirme; ?></td>
+                                    <td class="d-flex justify-content-end">
+                                        <a class="btn btn-warning me-0 " type="button" href="duzenleMusteri.php?id=<?php echo $musteriID; ?>"><span style="font-size:10px;"><i class="fa-solid fa-gears"></i></span></a>
+                                        <a class="btn btn-danger ms-1" href="control/silMusteri.php?id=<?php echo $musteriID; ?>"><span style="font-size:10px;"><i class="fa-solid fa-trash-can"></i></span></a>
                                     </td>
                                 </tr>
                             <?php
@@ -139,15 +139,15 @@ $gid_sorgu = mysqli_query($baglanti, "SELECT SUM(depGid_ay.gider*12) as gider FR
                             <i class="fas fa-chevron-right"></i> <span class="fs-4 fw-bold">Personel Listesi</span>
                         </div>
                         <div class="table-responsive">
-                            <table class="table table-borderless">
-                                <tr>
-                                    <th>ID</th>
-                                    <th>AD</th>
-                                    <th>SOYAD</th>
-                                    <th>DEPARTMAN</th>
-                                    <th>DEPARTMAN ID</th>
-                                    <th>MAAŞ</th>
-                                    <th>VERİMLİLİK PUANI</th>
+                            <table class="table fs-sm-2 table-striped table-borderless" style="text-align:center">
+                                <tr style="background-color:#cb4335;">
+                                    <th class="text-white">Personel Numarası</th>
+                                    <th class="text-white">Adı</th>
+                                    <th class="text-white">Soyadı</th>
+                                    <th class="text-white">Departman</th>
+                                    <th class="text-white">Departman Numarası</th>
+                                    <th class="text-white">Maaş Tutarı</th>
+                                    <th class="text-white">Verimlilik Puanı</th>
                                     <th></th>
                                 </tr>
                                 <?php
@@ -166,15 +166,15 @@ $gid_sorgu = mysqli_query($baglanti, "SELECT SUM(depGid_ay.gider*12) as gider FR
                                     $departmanID = $sonuc['dep_id'];
                                 ?>
                                     <tr>
-                                        <td class="personelcol"><?php echo $personelID; ?></td>
-                                        <td class="personelcol"><?php echo $personelAd; ?></td>
-                                        <td class="personelcol"><?php echo $personelSoyad; ?></td>
-                                        <td class="personelcol"><?php echo $departmanAd; ?></td>
-                                        <td class="personelcol"><?php echo $departmanID; ?></td>
-                                        <td class="personelcol"><?php echo $personelMaas; ?></td>
-                                        <td class="personelcol"><?php echo $verimlilikPuan; ?></td>
-                                        <td>
-                                            <a class="btn btn-primary me-5 " type="button" href="duzenlePersonel.php?id=<?php echo $personelID; ?>"><span style="font-size:10px;">Düzenle</span></a>
+                                        <td><?php echo $personelID; ?></td>
+                                        <td><?php echo $personelAd; ?></td>
+                                        <td><?php echo $personelSoyad; ?></td>
+                                        <td><?php echo $departmanAd; ?></td>
+                                        <td><?php echo $departmanID; ?></td>
+                                        <td><?php echo "$personelMaas<i class='fa-solid fa-turkish-lira-sign ms-1 mb-3 fs-8'></i>" ?></td>
+                                        <td><?php echo $verimlilikPuan; ?></td>
+                                        <td class="d-flex justify-content-end">
+                                            <a class="btn btn-warning me-2" type="button" href="duzenlePersonel.php?id=<?php echo $personelID; ?>"><span style="font-size:10px;"><i class="fa-solid fa-gears"></i></span></a>
                                         </td>
                                     </tr>
                                 <?php
@@ -194,15 +194,15 @@ $gid_sorgu = mysqli_query($baglanti, "SELECT SUM(depGid_ay.gider*12) as gider FR
                             <i class="fas fa-chevron-right"></i> <span class="fs-4 fw-bold">Yönetici Listesi</span>
                         </div>
                         <div class="table-responsive">
-                            <table class="table table-borderless">
-                                <tr>
-                                    <th>AD</th>
-                                    <th>SOYAD</th>
-                                    <th>DEPARTMAN</th>
-                                    <th>E-MAIL</th>
-                                    <th>CEP TELEFONU</th>
-                                    <th>SABİT TELEFON</th>
-                                    <th>ADRES</th>
+                            <table class="table fs-sm-2 table-striped table-borderless" style="text-align:center">
+                                <tr style="background-color:#58d68d;">
+                                    <th class="text-white">Yönetici Adı</th>
+                                    <th class="text-white">Yönetici Soyadı</th>
+                                    <th class="text-white">Sorumlu Olduğu Departman</th>
+                                    <th class="text-white">E-Mail Adresi</th>
+                                    <th class="text-white">Telefon Numarası</th>
+                                    <th class="text-white">Sabit Telefon</th>
+                                    <th class="text-white">Kayıtlı Adresi</th>
                                 </tr>
                                 <?php
                                 if ($baglanti) {
@@ -251,6 +251,9 @@ $gid_sorgu = mysqli_query($baglanti, "SELECT SUM(depGid_ay.gider*12) as gider FR
         </li>
         <li>
             <a class="text-muted" target="_blank" href="https://github.com/ahmmeetteren"><i class="fa-brands fa-github fs-4 ms-3"></i></a>
+        </li>
+        <li>
+            <a class="text-muted" target="_blank" href="https://github.com/ahmmeetteren"><i class="fa-brands fa-linkedin-in fs-4 ms-3"></i></a>
         </li>
     </ul>
 </footer>
