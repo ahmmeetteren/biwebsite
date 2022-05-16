@@ -6,7 +6,9 @@
 .text-cornflowerblue {
     color: #7289da;
 }
-
+.text-white{
+    color:white;
+}
 .bg-cornflowerblue {
     background-color: #7289da;
 }
@@ -53,7 +55,13 @@
     border-right-style: none;
     border-bottom-style: none;
 }
+table th:first-child {
+    border-radius: 10px 0 0 0px;
+}
 
+table th:last-child {
+    border-radius: 0 10px 0px 0;
+}
 
 .tab-size {
     font-size: 12px;
@@ -226,8 +234,9 @@
         animation-fill-mode: both;
         -webkit-animation-fill-mode: both;
     }
-    .footer-margin{
-        margin-left:120px; 
-        margin-right:120px;
+
+    .footer-margin {
+        margin-left: 120px;
+        margin-right: 120px;
     }
 }
