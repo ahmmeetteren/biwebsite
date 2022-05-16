@@ -365,6 +365,9 @@ $personelSayisi = mysqli_query($baglanti, "SELECT dep_ad, COUNT(personel.per_id)
         <li>
             <a class="text-muted" target="_blank" href="https://github.com/ahmmeetteren"><i class="fa-brands fa-github fs-4 ms-3"></i></a>
         </li>
+        <li>
+            <a class="text-muted" target="_blank" href="https://github.com/ahmmeetteren"><i class="fa-brands fa-linkedin-in fs-4 ms-3"></i></a>
+        </li>
     </ul>
 </footer>
 <script>
