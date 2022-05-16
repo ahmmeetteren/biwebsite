@@ -88,17 +88,17 @@ $gid_sorgu = mysqli_query($baglanti, "SELECT SUM(depGid_ay.gider*12) as gider FR
                     <div class="mb-3">
                         <i class="fas fa-chevron-right"></i> <span class="fs-4 fw-bold">Personel Raporu</span>
                     </div>
-                    <div class="table-responsive ">
-                        <table class="table fs-sm-2" style="text-align:center">
-                            <tr>
-                                <th>AD</th>
-                                <th>SOYAD</th>
-                                <th>DEPARTMAN</th>
-                                <th>DEPARTMAN ID</th>
-                                <th>MAAŞ</th>
-                                <th>VERİMLİLİK ORANI</th>
-                                <th>BAŞARI ORANI</th>
-                                <th>YILLIK PERFORMANS</th>
+                    <div class="table-responsive">
+                        <table class="table fs-sm-2 table-striped table-borderless" style="text-align:center">
+                            <tr style="background-color:#6c79e0;">
+                                <th class="text-white">Adı</th>
+                                <th class="text-white">Soyadı</th>
+                                <th class="text-white">Çalıştığı Departman</th>
+                                <th class="text-white">Departman Numarası</th>
+                                <th class="text-white">Aldığı Maaş</th>
+                                <th class="text-white">Verimlilik Oranı</th>
+                                <th class="text-white">Başarı Oranı</th>
+                                <th class="text-white">Çalışan Performansı</th>
                             </tr>
                             <?php
                             if ($baglanti) {
@@ -116,49 +116,49 @@ $gid_sorgu = mysqli_query($baglanti, "SELECT SUM(depGid_ay.gider*12) as gider FR
                                 $basariOrani = $sonuc['basariOrani'];
                             ?>
                                 <tr>
-                                    <td class="personelcol"><?php echo $personelAd; ?></td>
-                                    <td class="personelcol"><?php echo $personelSoyad; ?></td>
-                                    <td class="personelcol"><?php echo $departmanAd; ?></td>
-                                    <td class="personelcol"><?php echo $departmanID; ?></td>
-                                    <td class="personelcol"><?php echo $personelMaas; ?></td>
+                                    <td><?php echo $personelAd; ?></td>
+                                    <td><?php echo $personelSoyad; ?></td>
+                                    <td><?php echo $departmanAd; ?></td>
+                                    <td><?php echo $departmanID; ?></td>
+                                    <td><?php echo "$personelMaas<i class='fa-solid fa-turkish-lira-sign ms-1 mb-3 fs-8'></i>" ?></td>
 
-                                    <td class="personelcol"><?php if ($verimlilikPuan > 0 && $verimlilikPuan < 41) {
-                                                                echo 'Düşük <i class="fa-solid fa-angle-down text-danger"></i>';
-                                                            } elseif ($verimlilikPuan > 40 && $verimlilikPuan < 76) {
-                                                                echo 'Orta <i class="fa-solid fa-grip-lines text-warning"></i>';
-                                                            } elseif ($verimlilikPuan > 75) {
-                                                                echo 'Yüksek <i class="fa-solid fa-angle-up text-success"></i>';
-                                                            } else {
-                                                                echo "Belirsiz";
-                                                            };;;; ?></td>
+                                    <td><?php if ($verimlilikPuan > 0 && $verimlilikPuan < 41) {
+                                            echo 'Düşük <i class="fa-solid fa-angle-down text-danger"></i>';
+                                        } elseif ($verimlilikPuan > 40 && $verimlilikPuan < 76) {
+                                            echo 'Orta <i class="fa-solid fa-grip-lines text-warning"></i>';
+                                        } elseif ($verimlilikPuan > 75) {
+                                            echo 'Yüksek <i class="fa-solid fa-angle-up text-success"></i>';
+                                        } else {
+                                            echo "Belirsiz";
+                                        };;;; ?></td>
 
-                                    <td class="personelcol"><?php if ($basariOrani > 0 && $basariOrani < 2) {
-                                                                echo 'Çok Düşük <i class="fa-solid fa-angles-down text-danger"></i>';
-                                                            } elseif ($basariOrani > 1 && $basariOrani < 3) {
-                                                                echo 'Düşük <i class="fa-solid fa-angle-down text-danger"></i>';
-                                                            } elseif ($basariOrani > 2 && $basariOrani < 6) {
-                                                                echo 'Orta <i class="fa-solid fa-grip-lines text-warning"></i>';
-                                                            } elseif (5 < $basariOrani) {
-                                                                echo 'Yüksek <i class="fa-solid fa-angle-up text-success"></i>';
-                                                            } else {
-                                                                echo "Belirsiz";
-                                                            };;;;; ?></td>
+                                    <td><?php if ($basariOrani > 0 && $basariOrani < 2) {
+                                            echo 'Çok Düşük <i class="fa-solid fa-angles-down text-danger"></i>';
+                                        } elseif ($basariOrani > 1 && $basariOrani < 3) {
+                                            echo 'Düşük <i class="fa-solid fa-angle-down text-danger"></i>';
+                                        } elseif ($basariOrani > 2 && $basariOrani < 6) {
+                                            echo 'Orta <i class="fa-solid fa-grip-lines text-warning"></i>';
+                                        } elseif (5 < $basariOrani) {
+                                            echo 'Yüksek <i class="fa-solid fa-angle-up text-success"></i>';
+                                        } else {
+                                            echo "Belirsiz";
+                                        };;;;; ?></td>
 
-                                    <td class="personelcol"><?php if ($basariOrani > 0 && $basariOrani < 2 && $verimlilikPuan > 0 && $verimlilikPuan < 41) {
-                                                                echo 'Çok Düşük Performans <i class="fa-solid fa-angles-down text-danger"></i>';
-                                                            } elseif ($basariOrani > 5 && $basariOrani < 11 && $verimlilikPuan > 40 && $verimlilikPuan < 76) {
-                                                                echo 'Ortalama Performans <i class="fa-solid fa-grip-lines text-warning"></i>';
-                                                            } elseif (5 < $basariOrani && $verimlilikPuan > 75) {
-                                                                echo 'Yüksek Performans <i class="fa-solid fa-angle-up text-success"></i>';
-                                                            } elseif (($basariOrani > 0 && $basariOrani < 2) || ($basariOrani > 1 && $basariOrani < 3)) {
-                                                                echo 'Düşük Performans <i class="fa-solid fa-angle-down text-danger"></i>';
-                                                            } elseif (($basariOrani > 2 && $basariOrani < 6) && $verimlilikPuan > 75) {
-                                                                echo 'Yüksek Performans <i class="fa-solid fa-angle-up text-success"></i>';
-                                                            } elseif (($basariOrani > 2 && $basariOrani < 6) && ($verimlilikPuan > 0 && $verimlilikPuan < 41)) {
-                                                                echo 'Düşük Performans <i class="fa-solid fa-angle-down text-danger"></i>';
-                                                            } else {
-                                                                echo 'Ortalama Performans <i class="fa-solid fa-grip-lines text-warning"></i>';
-                                                            };;;;;;;; ?></td>
+                                    <td><?php if ($basariOrani > 0 && $basariOrani < 2 && $verimlilikPuan > 0 && $verimlilikPuan < 41) {
+                                            echo 'Çok Düşük Performans <i class="fa-solid fa-angles-down text-danger"></i>';
+                                        } elseif ($basariOrani > 5 && $basariOrani < 11 && $verimlilikPuan > 40 && $verimlilikPuan < 76) {
+                                            echo 'Ortalama Performans <i class="fa-solid fa-grip-lines text-warning"></i>';
+                                        } elseif (5 < $basariOrani && $verimlilikPuan > 75) {
+                                            echo 'Yüksek Performans <i class="fa-solid fa-angle-up text-success"></i>';
+                                        } elseif (($basariOrani > 0 && $basariOrani < 2) || ($basariOrani > 1 && $basariOrani < 3)) {
+                                            echo 'Düşük Performans <i class="fa-solid fa-angle-down text-danger"></i>';
+                                        } elseif (($basariOrani > 2 && $basariOrani < 6) && $verimlilikPuan > 75) {
+                                            echo 'Yüksek Performans <i class="fa-solid fa-angle-up text-success"></i>';
+                                        } elseif (($basariOrani > 2 && $basariOrani < 6) && ($verimlilikPuan > 0 && $verimlilikPuan < 41)) {
+                                            echo 'Düşük Performans <i class="fa-solid fa-angle-down text-danger"></i>';
+                                        } else {
+                                            echo 'Ortalama Performans <i class="fa-solid fa-grip-lines text-warning"></i>';
+                                        };;;;;;;; ?></td>
 
                                 </tr>
                             <?php
@@ -173,16 +173,16 @@ $gid_sorgu = mysqli_query($baglanti, "SELECT SUM(depGid_ay.gider*12) as gider FR
                     <div class="mb-3">
                         <i class="fas fa-chevron-right"></i> <span class="fs-4 fw-bold">Departman Raporu</span>
                     </div>
-                    <div class="table-responsive ">
+                    <div class="table-responsive table-striped table-borderless">
                         <table class="table fs-sm-2" style="text-align:center">
-                            <tr>
-                                <th>ID</th>
-                                <th>DEPARTMAN</th>
-                                <th>GELİR</th>
-                                <th>GİDER</th>
-                                <th>KÂR</th>
-                                <th>KÂR YÜZDESİ</th>
-                                <th>KÂR RAPORU</th>
+                            <tr style="background-color:#6c79e0;">
+                                <th class="text-white">Departman Numarası</th>
+                                <th class="text-white">Departman Adı</th>
+                                <th class="text-white">Departman Yıllık Geliri</th>
+                                <th class="text-white">Departman Yıllık Gideri</th>
+                                <th class="text-white">Yıllık Kâr</th>
+                                <th class="text-white">Kâr Yüzdesi</th>
+                                <th class="text-white">Kâr Raporu</th>
                             </tr>
                             <?php
                             if ($baglanti) {
@@ -206,14 +206,14 @@ $gid_sorgu = mysqli_query($baglanti, "SELECT SUM(depGid_ay.gider*12) as gider FR
                                     <td><?php echo "$departmanKar<i class='fa-solid fa-turkish-lira-sign ms-1 mb-3 fs-8'></i>"; ?></td>
                                     <td><?php echo "%$departmanKarOrani"; ?></td>
                                     <td><?php if ($departmanKarOrani > 0 && $departmanKarOrani < 10) {
-                                                                echo 'Düşük Kâr <i class="fa-solid fa-angle-down text-danger"></i>';
-                                                            } elseif ($departmanKarOrani > 10 && $departmanKarOrani < 25) {
-                                                                echo 'Ortalama Kâr <i class="fa-solid fa-grip-lines text-warning"></i>';
-                                                            } elseif ($departmanKarOrani > 25) {
-                                                                echo 'Yüksek Kâr <i class="fa-solid fa-angle-up text-success"></i>';
-                                                            } else {
-                                                                echo "Belirsiz";
-                                                            };;;; ?>
+                                            echo 'Düşük Kâr <i class="fa-solid fa-angle-down text-danger"></i>';
+                                        } elseif ($departmanKarOrani > 10 && $departmanKarOrani < 25) {
+                                            echo 'Ortalama Kâr <i class="fa-solid fa-grip-lines text-warning"></i>';
+                                        } elseif ($departmanKarOrani > 25) {
+                                            echo 'Yüksek Kâr <i class="fa-solid fa-angle-up text-success"></i>';
+                                        } else {
+                                            echo "Belirsiz";
+                                        };;;; ?>
                                     </td>
                                 </tr>
                             <?php
@@ -242,7 +242,9 @@ $gid_sorgu = mysqli_query($baglanti, "SELECT SUM(depGid_ay.gider*12) as gider FR
         <li>
             <a class="text-muted" target="_blank" href="https://github.com/ahmmeetteren"><i class="fa-brands fa-github fs-4 ms-3"></i></a>
         </li>
+        <li>
+            <a class="text-muted" target="_blank" href="https://github.com/ahmmeetteren"><i class="fa-brands fa-linkedin-in fs-4 ms-3"></i></a>
+        </li>
     </ul>
 </footer>
-
 </html>
