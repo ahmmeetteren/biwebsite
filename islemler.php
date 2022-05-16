@@ -161,7 +161,7 @@ $baglanti->set_charset("utf8");
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
-<footer class="d-flex justify-content-between align-items-center pt-3 mb-4 border-top footer-margin mt-auto">
+<footer class="d-flex justify-content-between align-items-center pt-3 my-4 border-top footer-margin mt-auto">
     <div class="col-md-4">
         <a href="main.php" class="navbar-brand fw-bold text-decoration-none"><i class="text-dark">AY</i><i style="color:#1da1f2;">TECH</i></a>
         <span class="text-muted">© 2022 Tüm Hakları Saklıdır</span>
@@ -172,6 +172,9 @@ $baglanti->set_charset("utf8");
         </li>
         <li>
             <a class="text-muted" target="_blank" href="https://github.com/ahmmeetteren"><i class="fa-brands fa-github fs-4 ms-3"></i></a>
+        </li>
+        <li>
+            <a class="text-muted" target="_blank" href="https://github.com/ahmmeetteren"><i class="fa-brands fa-linkedin-in fs-4 ms-3"></i></a>
         </li>
     </ul>
 </footer>
