@@ -24,7 +24,7 @@ $baglanti->set_charset("utf8");
     <title>Anasayfa</title>
 </head>
 
-<body class="d-flex flex-column min-vh-100" style="background-color:#F8F9F9; font-family: 'Kanit', sans-serif;">
+<body>
     <nav class="navbar navbar-expand-md navbar-dark pt-0" style="background-color:#22242a;">
         <div class="container">
             <a href="main.php" class="navbar-brand fw-bold ms-3 me-5" style="text-decoration:none;"><i class="text-light">AY</i><i style="color:#1da1f2;">TECH</i></a>

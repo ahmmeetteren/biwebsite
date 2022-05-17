@@ -1,6 +1,8 @@
-.body {
+body {
     margin: 0;
     padding: 0;
+    background-color:#F8F9F9!important; 
+    font-family: 'Kanit', sans-serif!important;
 }
 
 .text-cornflowerblue {
@@ -31,18 +33,6 @@
 
 .fs-9 {
     font-size: 8px;
-}
-
-.girisYap {
-    margin-top: 140px;
-}
-
-.girisYap h1 {
-    color: #343a40;
-}
-
-.girisYap form .girisYapbutonu button {
-    background-color: #343a40;
 }
 
 .inf-card {

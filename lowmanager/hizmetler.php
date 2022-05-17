@@ -20,7 +20,7 @@ $hizmetMaliyet2 = mysqli_query($baglanti, "SELECT hizmetler.hizmet_ad, hizmetler
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="index.css" rel="stylesheet" />
+    <link href="../index.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
@@ -51,11 +51,6 @@ $hizmetMaliyet2 = mysqli_query($baglanti, "SELECT hizmetler.hizmet_ad, hizmetler
                         </a>
                     </li>
                     <li class="nav-item ms-4">
-                        <a href="listeler.php" class="nav-link">
-                            <i class="fa-solid fa-list pt-2"></i> <span style="font-size:12px;">Listeler</span>
-                        </a>
-                    </li>
-                    <li class="nav-item ms-4">
                         <a href="departmanlar.php" class="nav-link">
                             <i class="fas fa-industry pt-2"></i> <span style="font-size:12px;">Departmanlar</span>
                         </a>
@@ -63,11 +58,6 @@ $hizmetMaliyet2 = mysqli_query($baglanti, "SELECT hizmetler.hizmet_ad, hizmetler
                     <li class="nav-item ms-4">
                         <a href="gorevler.php" class="nav-link">
                             <i class="fa-solid fa-bars-progress pt-2"></i> <span style="font-size:12px;">Performans</span>
-                        </a>
-                    </li>
-                    <li class="nav-item ms-4">
-                        <a href="islemler.php" class="nav-link">
-                            <i class="fa-solid fa-plus pt-2"></i> <span style="font-size:12px;">İşlemler</span>
                         </a>
                     </li>
                     <li class="nav-item ms-4">
@@ -83,7 +73,7 @@ $hizmetMaliyet2 = mysqli_query($baglanti, "SELECT hizmetler.hizmet_ad, hizmetler
                         </a>
                         <div class="dropdown-menu dropdown-menu-dark animate slideIn">
                             <a href="profil.php" class="dropdown-item py-2 ps-4" style="font-size:12px;"><i class="fa-solid fa-user me-1 mt-1"></i> Profil</a>
-                            <a href="control/logout.php" class="dropdown-item mt-1 py-2 ps-4" style="font-size:12px;"><i class="fa-solid fa-arrow-right-from-bracket me-1 mt-1"></i>Çıkış Yap</a>
+                            <a href="../control/logout.php" class="dropdown-item mt-1 py-2 ps-4" style="font-size:12px;"><i class="fa-solid fa-arrow-right-from-bracket me-1 mt-1"></i>Çıkış Yap</a>
                         </div>
                     </li>
                 </ul>
@@ -252,8 +242,8 @@ $hizmetMaliyet2 = mysqli_query($baglanti, "SELECT hizmetler.hizmet_ad, hizmetler
                                                             echo '"' . $sonuc4['hizmet_ad'] . '",';
                                                         } ?>];
                                     var hizmetMaliyet = [<?php while ($sonuc3 = mysqli_fetch_assoc($hizmetMaliyet2)) {
-                                                            echo '"' . $sonuc3['hizmetMaliyet'] . '",';
-                                                        } ?>];
+                                                                echo '"' . $sonuc3['hizmetMaliyet'] . '",';
+                                                            } ?>];
                                     var ctx = document.getElementById('hizmetMaliyet').getContext('2d');
                                     var chart = new Chart(ctx, {
                                         type: 'bar',
@@ -324,15 +314,15 @@ $hizmetMaliyet2 = mysqli_query($baglanti, "SELECT hizmetler.hizmet_ad, hizmetler
 </footer>
 <script>
     $(document).ready(function() {
-        $.post("control/getirHizmetSayi.php", function(data, status) {
+        $.post("../control/getirHizmetSayi.php", function(data, status) {
             $("#box-span1").html(data);
         });
 
-        $.post("control/getirHizmetMaliyet.php", function(data, status) {
+        $.post("../control/getirHizmetMaliyet.php", function(data, status) {
             $("#box-span2").html(data + "<i style='font-size:17px;'class='fa-solid fa-turkish-lira-sign ms-1'></i>");
         });
 
-        $.post("control/getirHizmetGelir.php", function(data, status) {
+        $.post("../control/getirHizmetGelir.php", function(data, status) {
             $("#box-span3").html(data + "<i style='font-size:17px;'class='fa-solid fa-turkish-lira-sign ms-1'></i>");
         });
     });

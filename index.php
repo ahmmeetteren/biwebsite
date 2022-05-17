@@ -16,7 +16,10 @@
                 }, function(data, status) {
                     if (data == 1) {
                         $(location).attr("href", "main.php");
-                    } else {
+                    }
+                    else if(data == 0) {
+                        $(location).attr("href", "lowmanager/main.php");
+                    }else {
                         alert("Kullanıcı adı veya şifre hatalı.");
                     };
                 });
@@ -25,10 +28,10 @@
     </script>
 </head>
 
-<body class="m-0" style="background-color:#f8f9f9;">
-    <div class="container girisYap">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
+<body>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="col-md-6 p-3 mt-5">
                 <form class="p-5">
                     <h1 class="text-center fs-2 pb-5">Giriş Yap</h1>
                     <div class="mb-3">
@@ -41,8 +44,8 @@
                     <div class="mb-3 clearfix">
                         <a href="#" class="text-decoration-none float-end fw-bold" style="color:#343a40;">Şifremi Unuttum</a>
                     </div>
-                    <div class="d-grid gap-2 girisYapbutonu">
-                        <button id="login-btn" type="button" class="btn btn-primary border-0">Giriş</button>
+                    <div class="form-group">
+                        <button id="login-btn" type="button" class="btn btn-primary border-0 w-100 fw-bold" style="background-color:#212529;">Giriş</button>
                     </div>
                     <footer class="mt-3">Hesabınız yok mu? <a class="text-decoration-none fw-bold" href="kayit.php">Kayıt ol</a></footer>
                 </form>
@@ -51,4 +54,5 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
+
 </html>

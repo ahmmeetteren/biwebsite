@@ -29,7 +29,7 @@ if (isset($_POST['guncelle'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="index.css" rel="stylesheet" />
+    <link href="../index.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
@@ -98,17 +98,17 @@ if (isset($_POST['guncelle'])) {
             </div>
         </div>
     </nav>
-    <section class="d-flex align-items-center justify-content-center" style="padding:2rem;">
-        <form action="" method="post" class="border">
+    <section class="d-flex align-items-center justify-content-center p-3">
+        <form action="" method="post">
             <?php
             $sorgu = mysqli_query($baglanti, "SELECT * FROM yoneticiler WHERE yon_id='" . $user_id . "'");
             $row = mysqli_fetch_assoc($sorgu);
             ?>
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-4 h-50 mt-3">
                     <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="img/ahmet.jpg"><span class="font-weight-bold mt-2"><?= $row['yon_ad']; ?></span><span class="text-black-50"><?= $row['email']; ?></span><span> </span></div>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-6 mt-3 ms-md-5">
                     <div class="p-3 py-5">
                         <div class="mb-3">
                             <h4 class="text-right fs-6">Profil Ayarları</h4>
