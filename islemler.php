@@ -59,15 +59,15 @@ $baglanti->set_charset("utf8");
                         </a>
                     </li>
                     <li class="nav-item ms-4">
-						<a href="listeler.php" class="nav-link">
-							<i class="fa-solid fa-list pt-2"></i> <span style="font-size:12px;">Listeler</span>
-						</a>
-					</li>
-					<li class="nav-item ms-4">
-						<a href="islemler.php" class="nav-link active">
-							<i class="fa-solid fa-plus pt-2"></i> <span style="font-size:12px;">İşlemler</span>
-						</a>
-					</li>
+                        <a href="listeler.php" class="nav-link">
+                            <i class="fa-solid fa-list pt-2"></i> <span style="font-size:12px;">Listeler</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ms-4">
+                        <a href="islemler.php" class="nav-link active">
+                            <i class="fa-solid fa-plus pt-2"></i> <span style="font-size:12px;">İşlemler</span>
+                        </a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
@@ -136,7 +136,7 @@ $baglanti->set_charset("utf8");
                 <div class="col-md-2"></div>
                 <div class="col-md-5 shadow rounded-3 p-4" style="background-color:#ffffff;">
                     <div class="mb-3">
-                        <a class="text-decoration-none"><i class="fas fa-chevron-right me-1"></i><span class="fs-4 fw-bold">Personel Ekle</span></a>
+                        <a class="text-decoration-none text-danger"><i class="fas fa-chevron-right me-1"></i><span class="fs-4 fw-bold">Personel Ekle</span></a>
                     </div>
                     <div>
                         <form class="fs-sm-2" action="control/save.php" method="get" id="form">
@@ -157,20 +157,23 @@ $baglanti->set_charset("utf8");
                                 <div class="col-md-6"><input placeholder="Personel Maaş" class="form-control" type="text" name="per_maas"></div>
                                 <div class="col-md-6"><input placeholder="Çalışılan Gün" class="form-control" type="text" name="calisilanGun"></div>
                             </div>
-                            <button type="submit" class="btn btn-primary p-1 mt-2 px-3 w-100" id="btnSubmit"><span class="fs-sm-2">Ekle</span></button>
+                            <button type="submit" class="btn btn-danger p-1 mt-2 px-3 w-100" id="btnSubmit"><span class="fs-sm-2">Ekle</span></button>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="row mt-5 justify-content-center">
                 <div class="col-md-6 shadow bg-body p-4 rounded-3">
+                    <div class="mb-3">
+                        <a class="text-decoration-none text-success"><i class="fas fa-chevron-right me-1"></i><span class="fs-4 fw-bold">Hizmet Ekle</span></a>
+                    </div>
                     <form class="" action="control/hizmetEkle.php" method="get">
                         <div class="form-group mb-3">
-                            <input placeholder="hizmet_ad" class="form-control" type="text" name="hizmet_ad">
+                            <input placeholder="Hizmet Adı" class="form-control" type="text" name="hizmet_ad">
                         </div>
                         <div class="mb-3">
                             <select class="form-control" name="dep_id">
-                                <option selected> Departman numaranızı seçin.</option>
+                                <option selected>Hizmetin ilişkili olduğu departman</option>
                                 <?php
                                 $baglanti = mysqli_connect("localhost", "root", "", "karardesteksistemleri");
                                 $sorgu = $baglanti->query("SELECT * FROM `departmanlar` WHERE 1");
@@ -183,12 +186,12 @@ $baglanti->set_charset("utf8");
                             </select>
                         </div>
                         <div class="form-group mb-3">
-                            <input placeholder="Hizmet Maliyet" class="form-control" type="text" name="hizmet_maliyet">
+                            <input placeholder="Hizmet Maliyeti" class="form-control" type="text" name="hizmet_maliyet">
                         </div>
                         <div class="mb-3">
-                            <input placeholder="Hizmet Gelir"class="form-control" type="text" name="hizmet_gelir">
+                            <input placeholder="Hizmet Geliri" class="form-control" type="text" name="hizmet_gelir">
                         </div>
-                        <button class="btn btn-primary w-100 mb-2" type="submit">Ekle</button>
+                        <button class="btn btn-success w-100 mb-2" type="submit">Ekle</button>
                     </form>
                 </div>
             </div>
