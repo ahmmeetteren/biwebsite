@@ -63,6 +63,11 @@ $baglanti->set_charset("utf8");
                             <i class="fa-solid fa-plus pt-2"></i> <span style="font-size:12px;">İşlemler</span>
                         </a>
                     </li>
+                    <li class="nav-item ms-4">
+                        <a href="hizmetler.php" class="nav-link">
+                            <i class="fa-solid fa-bars-staggered pt-2"></i> <span style="font-size:12px;">Hizmetler</span>
+                        </a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
@@ -157,6 +162,36 @@ $baglanti->set_charset("utf8");
                     </div>
                 </div>
             </div>
+            <div class="row mt-5 justify-content-center">
+                <div class="col-md-6 shadow bg-body p-4 rounded-3">
+                    <form class="" action="control/hizmetEkle.php" method="get">
+                        <div class="form-group mb-3">
+                            <input placeholder="hizmet_ad" class="form-control" type="text" name="hizmet_ad">
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-control" name="dep_id">
+                                <option selected> Departman numaranızı seçin.</option>
+                                <?php
+                                $baglanti = mysqli_connect("localhost", "root", "", "karardesteksistemleri");
+                                $sorgu = $baglanti->query("SELECT * FROM `departmanlar` WHERE 1");
+                                while ($sonuc = $sorgu->fetch_assoc()) {
+                                    $departmanID = $sonuc['dep_id'];
+                                    $departmanAD = $sonuc['dep_ad'];
+                                    echo '<option value="' . $departmanID . '">' . $departmanAD . ' (' . $departmanID . ')</option>';
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input placeholder="Hizmet Maliyet" class="form-control" type="text" name="hizmet_maliyet">
+                        </div>
+                        <div class="mb-3">
+                            <input placeholder="Hizmet Gelir"class="form-control" type="text" name="hizmet_gelir">
+                        </div>
+                        <button class="btn btn-primary w-100 mb-2" type="submit">Ekle</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -178,4 +213,5 @@ $baglanti->set_charset("utf8");
         </li>
     </ul>
 </footer>
+
 </html>

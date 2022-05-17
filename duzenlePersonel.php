@@ -69,6 +69,11 @@ if (mysqli_connect_error()) {
 							<i class="fa-solid fa-plus pt-2"></i> <span style="font-size:12px;">İşlemler</span>
 						</a>
 					</li>
+					<li class="nav-item ms-4">
+                        <a href="hizmetler.php" class="nav-link">
+                            <i class="fa-solid fa-bars-staggered pt-2"></i> <span style="font-size:12px;">Hizmetler</span>
+                        </a>
+                    </li>
 				</ul>
 				<ul class="navbar-nav ms-auto">
 					<li class="nav-item dropdown">

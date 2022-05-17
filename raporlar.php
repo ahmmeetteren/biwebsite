@@ -24,7 +24,7 @@ $gid_sorgu = mysqli_query($baglanti, "SELECT SUM(depGid_ay.gider*12) as gider FR
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/f6190b6e7c.js" crossorigin="anonymous"></script>
-    <title>Personeller</title>
+    <title>Raporlar</title>
 </head>
 
 <body style="background-color:#F8F9F9; font-family: 'Kanit', sans-serif;">
@@ -66,6 +66,11 @@ $gid_sorgu = mysqli_query($baglanti, "SELECT SUM(depGid_ay.gider*12) as gider FR
                             <i class="fa-solid fa-plus pt-2"></i> <span style="font-size:12px;">İşlemler</span>
                         </a>
                     </li>
+                    <li class="nav-item ms-4">
+                        <a href="hizmetler.php" class="nav-link">
+                            <i class="fa-solid fa-bars-staggered pt-2"></i> <span style="font-size:12px;">Hizmetler</span>
+                        </a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
@@ -90,7 +95,7 @@ $gid_sorgu = mysqli_query($baglanti, "SELECT SUM(depGid_ay.gider*12) as gider FR
                     </div>
                     <div class="table-responsive">
                         <table class="table fs-sm-2 table-striped table-borderless" style="text-align:center">
-                            <tr style="background-color:#6c79e0;">
+                            <tr style="background-color:#c14032;">
                                 <th class="text-white">Adı</th>
                                 <th class="text-white">Soyadı</th>
                                 <th class="text-white">Çalıştığı Departman</th>
@@ -175,7 +180,7 @@ $gid_sorgu = mysqli_query($baglanti, "SELECT SUM(depGid_ay.gider*12) as gider FR
                     </div>
                     <div class="table-responsive table-striped table-borderless">
                         <table class="table fs-sm-2" style="text-align:center">
-                            <tr style="background-color:#6c79e0;">
+                            <tr style="background-color:#54cb86;">
                                 <th class="text-white">Departman Numarası</th>
                                 <th class="text-white">Departman Adı</th>
                                 <th class="text-white">Departman Yıllık Geliri</th>
@@ -213,6 +218,64 @@ $gid_sorgu = mysqli_query($baglanti, "SELECT SUM(depGid_ay.gider*12) as gider FR
                                             echo 'Yüksek Kâr <i class="fa-solid fa-angle-up text-success"></i>';
                                         } else {
                                             echo "Belirsiz";
+                                        };;;; ?>
+                                    </td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row shadow mt-5 p-4 bg-body rounded-3">
+                <div class="report">
+                    <div class="mb-3">
+                        <i class="fas fa-chevron-right"></i> <span class="fs-4 fw-bold">Hizmetler Raporu</span>
+                    </div>
+                    <div class="table-responsive table-striped table-borderless">
+                        <table class="table fs-sm-2" style="text-align:center">
+                            <tr style="background-color:#6c79e0;">
+                                <th class="text-white">Hizmet Numarası</th>
+                                <th class="text-white">İlişkili Departman</th>
+                                <th class="text-white">Hizmet Adı</th>
+                                <th class="text-white">Hizmet Başı Getiri</th>
+                                <th class="text-white">Hizmet Başı Maliyet</th>
+                                <th class="text-white">Net Kâr</th>
+                                <th class="text-white">Elde Edilen Kâr Yüzdesi</th>
+                                <th class="text-white">Getiri Raporu</th>
+                            </tr>
+                            <?php
+                            if ($baglanti) {
+                                $sorgu4 = $baglanti->query("SELECT hizmetler.hizmet_id, departmanlar.dep_ad, hizmetler.hizmet_ad,hizmetler.hizmet_gelir as hizmetGelir, hizmetler.hizmet_maliyet as hizmetMaliyet, hizmetler.hizmet_gelir - hizmetler.hizmet_maliyet as kar, ROUND(((hizmetler.hizmet_gelir - hizmetler.hizmet_maliyet)/hizmetler.hizmet_maliyet)*100,0) as karOrani FROM departmanlar,hizmetler WHERE departmanlar.dep_id = hizmetler.dep_id GROUP BY hizmetler.hizmet_id");
+                            } else {
+                                echo "Başarısız sorgu.";
+                            }
+                            while ($sonuc4 = $sorgu4->fetch_assoc()) {
+                                $hizmetid = $sonuc4['hizmet_id'];
+                                $departmanAd4 = $sonuc4['dep_ad'];
+                                $hizmetAd = $sonuc4['hizmet_ad'];
+                                $hizmetGelir = $sonuc4['hizmetGelir'];
+                                $hizmetMaliyet = $sonuc4['hizmetMaliyet'];
+                                $hizmetKar = $sonuc4['kar'];
+                                $hizmetKarOrani = $sonuc4['karOrani'];
+                            ?>
+                                <tr>
+                                    <td><?php echo $hizmetid; ?></td>
+                                    <td><?php echo $departmanAd4; ?></td>
+                                    <td><?php echo $hizmetAd; ?></td>
+                                    <td><?php echo "$hizmetGelir<i class='fa-solid fa-turkish-lira-sign ms-1 mb-3 fs-8'></i>"; ?></td>
+                                    <td><?php echo "$hizmetMaliyet<i class='fa-solid fa-turkish-lira-sign ms-1 mb-3 fs-8'></i>"; ?></td>
+                                    <td><?php echo "$hizmetKar<i class='fa-solid fa-turkish-lira-sign ms-1 mb-3 fs-8'></i>"; ?></td>
+                                    <td><?php echo "%$hizmetKarOrani"; ?></td>
+                                    <td><?php if ($hizmetKarOrani > 0 && $hizmetKarOrani < 20) {
+                                            echo 'Düşük <i class="fa-solid fa-angle-down text-danger"></i>';
+                                        } elseif ($hizmetKarOrani > 20 && $hizmetKarOrani < 50) {
+                                            echo 'Ortalama <i class="fa-solid fa-grip-lines text-warning"></i>';
+                                        } elseif ($hizmetKarOrani > 50 && $hizmetKarOrani < 100) {
+                                            echo 'Yüksek <i class="fa-solid fa-angle-up text-success"></i>';
+                                        }else {
+                                            echo 'Çok Yüksek <i class="fa-solid fa-angles-up text-success"></i>';
                                         };;;; ?>
                                     </td>
                                 </tr>
