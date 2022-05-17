@@ -44,11 +44,6 @@ $baglanti->set_charset("utf8");
                         </a>
                     </li>
                     <li class="nav-item ms-4">
-                        <a href="listeler.php" class="nav-link">
-                            <i class="fa-solid fa-list pt-2"></i> <span style="font-size:12px;">Listeler</span>
-                        </a>
-                    </li>
-                    <li class="nav-item ms-4">
                         <a href="departmanlar.php" class="nav-link">
                             <i class="fas fa-industry pt-2"></i> <span style="font-size:12px;">Departmanlar</span>
                         </a>
@@ -59,15 +54,20 @@ $baglanti->set_charset("utf8");
                         </a>
                     </li>
                     <li class="nav-item ms-4">
-                        <a href="islemler.php" class="nav-link active">
-                            <i class="fa-solid fa-plus pt-2"></i> <span style="font-size:12px;">İşlemler</span>
-                        </a>
-                    </li>
-                    <li class="nav-item ms-4">
                         <a href="hizmetler.php" class="nav-link">
                             <i class="fa-solid fa-bars-staggered pt-2"></i> <span style="font-size:12px;">Hizmetler</span>
                         </a>
                     </li>
+                    <li class="nav-item ms-4">
+						<a href="listeler.php" class="nav-link">
+							<i class="fa-solid fa-list pt-2"></i> <span style="font-size:12px;">Listeler</span>
+						</a>
+					</li>
+					<li class="nav-item ms-4">
+						<a href="islemler.php" class="nav-link active">
+							<i class="fa-solid fa-plus pt-2"></i> <span style="font-size:12px;">İşlemler</span>
+						</a>
+					</li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
