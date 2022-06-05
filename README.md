@@ -6,3 +6,5 @@ The project was coded by considering php, bootstrap and javascript. Based on bus
 Developed and designed by Ahmet Eren Yilmaz
 
 Dokuz Eylul University.
+
+Graduation Project.
